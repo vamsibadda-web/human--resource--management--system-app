@@ -1,8 +1,6 @@
  
 import { useForm } from "react-hook-form";
 import {  useNavigate } from "react-router-dom";
-
-
 import { users } from "../Data/Users";
  
 type LoginForm = {
@@ -11,25 +9,32 @@ type LoginForm = {
 };
  
 function LoginScreen() {
-  const {register,handleSubmit,formState:{errors}} = useForm<LoginForm>()
   const navigate = useNavigate()
-  const onSubmit = (data : LoginForm) => {
-    const foundUser = users.find(
-      (user) => user.Email === data.email &&
+  const {register,handleSubmit,formState:{errors}} = useForm<LoginForm>()
+  const onSubmit = (data: LoginForm) => {
+
+  const foundUser = users.find(
+    (user) =>
+      user.Email === data.email &&
       user.password === data.password
-    )
-    if(foundUser){
-      localStorage.setItem("user", JSON.stringify(foundUser))
-      navigate("/")
-      alert("Successful Submitted")
-    }
-    else {
-      alert("Invalid Credentials")
-    }
+  );
+
+  if (!foundUser) {
+    alert("Invalid Credentials");
+    navigate("/");
+    return;
   }
- 
- 
-  return (
+
+  localStorage.setItem("user",JSON.stringify(foundUser));
+
+  alert("Login Successful");
+  if (foundUser.designation === "Admin") {
+    navigate("/employess");
+  } else  {
+    navigate("/dashboard");
+  }
+};
+return (
     <div className="flex items-center justify-center items-center h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -69,16 +74,12 @@ function LoginScreen() {
               <p>{errors.password.message}</p>
             )}
         </div>
- 
-        <button
+         <button
           type="submit"
-          className="w-full py-2 text-white transition bg-blue-600 rounded-lg hover:bg-blue-700" >
-          Login
-        </button>
+          className="w-full py-2 text-white transition bg-blue-600 rounded-lg hover:bg-blue-700" >Login </button>
       </form>
     </div>
   );
 }
- 
 export default LoginScreen;
  

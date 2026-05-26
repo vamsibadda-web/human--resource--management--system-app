@@ -1,24 +1,26 @@
-import type { JSX } from "react"
+import { Navigate } from "react-router-dom";
 
-import { Navigate } from "react-router-dom"
-
-type props ={
-  children : JSX.Element;
-  allowedRoles:string[];
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+  allowedRoles: string[];
 }
-function ProtectedRoute({children,
+
+function ProtectedRoute({
+  children,
   allowedRoles,
+}: ProtectedRouteProps) {
 
-} : props){
-  const userData = localStorage.getItem("user")
-  if(!userData){
-    return <Navigate to="/loginScreen"/>
+  const user = JSON.parse(
+    localStorage.getItem("user") || "null"
+  );
+  if (!user) {
+    return <Navigate to="/" />;
   }
-  const user=JSON.parse(userData)
-  if(!allowedRoles.includes(user.role))
-  {
-    return <h2>Access Denied</h2>
+  if (!allowedRoles.includes(user. designation)) {
+    return <Navigate to="/dashboard"/>;
   }
-  return children
+
+  return <>{children}</>;
 }
+
 export default ProtectedRoute

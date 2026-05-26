@@ -2,6 +2,7 @@ export const users=[
     {
         id:1,
         name:"john",
+        designation:"Employee",
         role:"Frontend",
         salary:12000,
         Email:"John1@gmail.com",
@@ -10,6 +11,7 @@ export const users=[
     {
         id:2,
         name:"Deo",
+        designation:"Admin",
         role:"Backend",
         salary:40000,
         Email:"Deo2@gmail.com",
@@ -18,6 +20,7 @@ export const users=[
     {
         id:3,
         name:"paul",
+        designation:"Employee",
         role:"Testing",
         salary:30000,
         Email:"paul3@gmail.com",
@@ -26,6 +29,7 @@ export const users=[
     {
         id:4,
         name:"sai",
+        designation:"Admin",
         role:"Testing",
         salary:35000,
         Email:"sai4@gmail.com",
@@ -34,7 +38,8 @@ export const users=[
      {
         id:5,
         name:"John deo",
-        role:"Frontend",
+        designation:"Employee",
+        role:"Python",
         salary:35000,
         Email:"Johndeo5@gmail.com",
         password:"JohnDeo@5"
@@ -42,17 +47,28 @@ export const users=[
     {
         id:6,
         name:"vamsi",
+        designation:"Admin",
         role:"Java",
         salary:25000,
         Email:"vamsi6@gmail.com",
         password:"vamsi@6"
     },
     {
-        id:6,
-        name:"Dhoni",
-        role:"Java",
+        id:7,
+        name:"Jack",
+        designation:"Employee",
+        role:"Data Analyst",
         salary:25000,
-        Email:"dhoni7@gmail.com",
-        password:"Dhoni@7"
+        Email:"jack7@gmail.com",
+        password:"Jack@7"
+    },
+    {
+        id:8,
+        name:"Jackson",
+        designation:"Employee",
+        role:"Data consultant",
+        salary:25000,
+        Email:"jackson10@gmail.com",
+        password:"Jackson@9"
     }
 ]
