@@ -23,7 +23,7 @@ function EmployeeForm() {
     setName("");
     setRole("");
     setSalary("");
-    navigate("/add-employees");
+    navigate("/employees");
   };
 
   return (
