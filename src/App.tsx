@@ -1,138 +1,32 @@
+// import EmployeeTable from "./Components/EmployeeTable";
+import ProtectedRoute from "./Components/ProtectedRoute";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-
-import ProtectedRoute from "./Components/ProtectedRoute";
-
-// Lazy Loading
-const LoginScreen = lazy(
-  () => import("./Components/LoginScreen")
-);
-
-const Dashboard = lazy(
-  () => import("./Components/Dashboard")
-);
-
-const EmployeeTable = lazy(
-  () => import("./Components/EmployeeTable")
-);
-
-const EmployeeForm = lazy(
-  () => import("./Components/EmployeeForm")
-);
-
-const ApplyLeave = lazy(
-  () => import("./Components/ApplyLeave")
-);
-
-const LeaveManagement = lazy(
-  () => import("./Components/LeaveManagement")
-);
-
-const EmployeeStatistic = lazy(
-  () => import("./Components/EmployeeStatistic")
-);
-
-const DepartmentChart = lazy(
-  () => import("./Components/DepartmentChart")
-);
+const LoginScreen = lazy(() => import("./Components/LoginScreen"));
+const Dashboard = lazy(() => import("./Components/Dashboard"));
+const EmployeeTable = lazy(() => import("./Components/EmployeeTable"));
+const EmployeeForm = lazy(() => import("./Components/EmployeeForm"));
+const ApplyLeave = lazy(() => import("./Components/ApplyLeave"));
+const LeaveManagement = lazy(() => import("./Components/LeaveManagement"));
+const EmployeeStatistic = lazy(() => import("./Components/EmployeeStatistic"));
+const DepartmentChart = lazy(() => import("./Components/DepartmentChart"));
 
 function App() {
-
   return (
-
     <Suspense
       fallback={
-        <div className="flex justify-center items-center h-screen text-2xl font-bold">
-          Loading...
-        </div>
-      }
-    >
-
+        <div className="flex justify-center items-center h-screen text-2xl font-bold">Loading... </div>
+      }>
       <Routes>
-        <Route
-          path="/"
-          element={<LoginScreen />}
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute
-              allowedRoles={[
-                "Admin",
-                "Employee",
-              ]}
-            >
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/employees"
-          element={
-            <ProtectedRoute
-              allowedRoles={["Admin"]}
-            >
-              <EmployeeTable />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/add-employee"
-          element={
-            <ProtectedRoute
-              allowedRoles={["Admin"]}
-            >
-              <EmployeeForm />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/leave-management"
-          element={
-            <ProtectedRoute
-              allowedRoles={["Admin"]}
-            >
-              <LeaveManagement />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/apply-leave"
-          element={
-            <ProtectedRoute
-              allowedRoles={[
-                "Employee",
-                "Admin",
-              ]}
-            >
-              <ApplyLeave />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/statistics"
-          element={
-            <ProtectedRoute
-              allowedRoles={["Admin"]}
-            >
-              <EmployeeStatistic />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/department-chart"
-          element={
-            <ProtectedRoute
-              allowedRoles={["Admin"]}
-            >
-              <DepartmentChart />
-            </ProtectedRoute>
-          }
-        />
-
+        <Route path="/" element={<LoginScreen />}/>
+        <Route path="/dashboard" element={<ProtectedRoute allowedRoles={[ "Admin","Employee"]}><Dashboard /></ProtectedRoute>}/>
+         <Route path="/employees" element={<ProtectedRoute allowedRoles={[ "Admin"]}><EmployeeTable/></ProtectedRoute>}/>
+         <Route path="/add-employee" element={<ProtectedRoute allowedRoles={["Admin"]}><EmployeeForm /></ProtectedRoute>}/>
+         <Route path="/leave-management" element={<ProtectedRoute allowedRoles={[ "Admin"]}><LeaveManagement/></ProtectedRoute>}/>
+         <Route path="/apply-leave" element={<ProtectedRoute allowedRoles={[ "Employee","Admin"]}><ApplyLeave /></ProtectedRoute>}/>
+         <Route path="/statistics" element={<ProtectedRoute allowedRoles={[ "Admin"]}><EmployeeStatistic/></ProtectedRoute>}/>
+         <Route path="/department-chart" element={<ProtectedRoute allowedRoles={[ "Admin"]}><DepartmentChart/></ProtectedRoute>}/>
       </Routes>
-
     </Suspense>
   );
 }
