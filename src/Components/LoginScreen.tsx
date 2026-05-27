@@ -24,15 +24,10 @@ function LoginScreen() {
     navigate("/");
     return;
   }
+     localStorage.setItem("user",JSON.stringify(foundUser));
+     alert("Login Successful");
 
-  localStorage.setItem("user",JSON.stringify(foundUser));
-
-  alert("Login Successful");
-  if (foundUser.designation === "Admin") {
-    navigate("/employess");
-  } else  {
-    navigate("/dashboard");
-  }
+navigate("/dashboard");
 };
 return (
     <div className="flex items-center justify-center items-center h-screen bg-gray-100">
