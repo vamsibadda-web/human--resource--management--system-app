@@ -5,6 +5,7 @@ import {  useNavigate } from "react-router-dom";
 
 function ApplyLeave(){
     const addLeave = useLeaveStore((state) => state.addLeave)
+    const users = useLeaveStore((state) =>state.leaves)
     const navigate= useNavigate()
     const[employeeName,setEmployeeName] = useState("")
     const [reason, setReason] = useState("")
@@ -12,7 +13,7 @@ function ApplyLeave(){
     const[toDate,setToDate]=useState("")
     const handleApply =() => {
         const newLeave ={
-             id: Date.now(),
+             id:users.length + 1,
              employeeName,
              reason,
              fromDate,
@@ -48,17 +49,16 @@ function ApplyLeave(){
       <input type="date" value={fromDate}
         onChange={(e) =>
           setFromDate(e.target.value)
-        } className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"/>
-        </div>
+        } className="w-full px-4 py-3 border rounded-lg"/>
         </div>
         <div>
       <input type="date" value={toDate}
         onChange={(e) =>
           setToDate(e.target.value)
-        }className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-400"/>
+        }className="w-full px-4 py-3 border rounded-lg"/>
         </div>
-
       <button onClick={handleApply}  className="w-full py-3 text-lg font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">Apply Leave </button>
+        </div>
         </div>
         </div>
     )

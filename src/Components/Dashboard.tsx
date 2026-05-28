@@ -14,11 +14,15 @@ function Dashboard() {
         </div>
       </div>
       <div className="mt-10 flex gap-5 flex-wrap">
-        <Link to="/employees"className="bg-blue-600 text-white px-5 py-3 rounded-lg">Employees</Link>
-        <Link to="/add-employee" className="bg-green-600 text-white px-5 py-3 rounded-lg"> Add Employee</Link>
-        <Link to="/department-chart" className="bg-purple-600 text-white px-5 py-3 rounded-lg"> Department Chart</Link>
-        <Link to="/statistics" className="bg-orange-600 text-white px-5 py-3 rounded-lg">Statistics</Link>
         <Link to="/apply-leave" className="bg-pink-600 text-white px-5 py-3 rounded-lg">Apply Leave</Link>
+        {user.designation === "Admin" && (
+          <>
+          <Link to="/employees"className="bg-blue-600 text-white px-5 py-3 rounded-lg">Employees</Link>
+          <Link to="/add-employee" className="bg-green-600 text-white px-5 py-3 rounded-lg"> Add Employee</Link>
+          <Link to="/department-chart" className="bg-purple-600 text-white px-5 py-3 rounded-lg"> Department Chart</Link>
+          <Link to="/statistics" className="bg-orange-600 text-white px-5 py-3 rounded-lg">Statistics</Link>
+          </>
+        )}
       </div>
     </div>
   );

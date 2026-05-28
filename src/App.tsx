@@ -24,7 +24,7 @@ function App() {
          <Route path="/add-employee" element={<ProtectedRoute allowedRoles={["Admin"]}><EmployeeForm /></ProtectedRoute>}/>
          <Route path="/leave-management" element={<ProtectedRoute allowedRoles={[ "Admin"]}><LeaveManagement/></ProtectedRoute>}/>
          <Route path="/apply-leave" element={<ProtectedRoute allowedRoles={[ "Employee","Admin"]}><ApplyLeave /></ProtectedRoute>}/>
-         <Route path="/statistics" element={<ProtectedRoute allowedRoles={[ "Admin"]}><EmployeeStatistic/></ProtectedRoute>}/>
+         <Route path="/statistics" element={<ProtectedRoute allowedRoles={[ "Admin","Employee"]}><EmployeeStatistic/></ProtectedRoute>}/>
          <Route path="/department-chart" element={<ProtectedRoute allowedRoles={[ "Admin"]}><DepartmentChart/></ProtectedRoute>}/>
       </Routes>
     </Suspense>

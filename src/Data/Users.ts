@@ -39,7 +39,7 @@ export const users=[
         id:5,
         name:"John deo",
         designation:"Employee",
-        role:"Python",
+        role:"Frontend",
         salary:35000,
         Email:"Johndeo5@gmail.com",
         password:"JohnDeo@5"
@@ -48,7 +48,7 @@ export const users=[
         id:6,
         name:"vamsi",
         designation:"Admin",
-        role:"Java",
+        role:"Backend",
         salary:25000,
         Email:"vamsi6@gmail.com",
         password:"vamsi@6"
@@ -57,7 +57,7 @@ export const users=[
         id:7,
         name:"Jack",
         designation:"Employee",
-        role:"Data Analyst",
+        role:"Frontend",
         salary:25000,
         Email:"jack7@gmail.com",
         password:"Jack@7"
@@ -66,7 +66,7 @@ export const users=[
         id:8,
         name:"Jackson",
         designation:"Employee",
-        role:"Data consultant",
+        role:"Backend",
         salary:25000,
         Email:"jackson10@gmail.com",
         password:"Jackson@9"

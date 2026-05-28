@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 function EmployeeForm() {
   const navigate = useNavigate();
-  const addEmployee = useUsers((state) => state.addEmployee );
-
+  const addEmployee = useUsers((state) => state.addEmployee);
+  const users=useUsers((state) => state.users)
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [salary, setSalary] = useState("");
   const handleAdd = () => {
     const newEmployee = {
-      id: Date.now(),
+      id: users.length + 1,
       name,
       designation: "Employee",
       role,
