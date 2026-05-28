@@ -17,7 +17,7 @@ interface LeaveStore {
 }
 
 export const useLeaveStore = create<LeaveStore>((set) => ({
-    leaves: [],
+    leaves: JSON.parse(localStorage.getItem("leaves")||"[]"),
   addLeave: (leave) =>
     set((state) => ({
       leaves: [...state.leaves, leave],
@@ -26,8 +26,7 @@ export const useLeaveStore = create<LeaveStore>((set) => ({
     set((state) => ({
       leaves: state.leaves.map((leave) =>
         leave.id === id
-          ? { ...leave, status: "Approved" }
-          : leave
+          ? { ...leave, status: "Approved" }: leave
       ),
     })),
 
@@ -35,8 +34,7 @@ export const useLeaveStore = create<LeaveStore>((set) => ({
     set((state) => ({
       leaves: state.leaves.map((leave) =>
         leave.id === id
-          ? { ...leave, status: "Rejected" }
-          : leave
+          ? { ...leave, status: "Rejected" }: leave
       ),
     })),
 }));

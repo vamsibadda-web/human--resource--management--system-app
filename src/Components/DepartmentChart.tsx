@@ -1,11 +1,11 @@
 import { useUsers } from "../Store/useUsers";
 
 function DepartmentChart() {
-  const users = useUsers((state) => state.users);
-  const frontendCount = users.filter((user) => user.role === "Frontend" ).length;
-  const backendCount = users.filter((user) => user.role === "Backend").length;
-  const testingCount = users.filter((user) => user.role === "Testing").length;
-  return (
+  const users = useUsers((state) => state.users)
+  const frontendCount = users.filter((user) => user.role === "Frontend" ).length 
+  const backendCount = users.filter((user) => user.role === "Backend").length
+  const testingCount = users.filter((user) => user.role === "Testing").length
+ return(
     <div className="mt-10">
       <h2 className="mb-6 text-3xl font-bold text-gray-800">Department Statistics</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

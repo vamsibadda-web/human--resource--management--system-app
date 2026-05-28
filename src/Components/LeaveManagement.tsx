@@ -17,6 +17,7 @@ function LeaveManagement() {
           <table className="w-full border border-gray-200 rounded-lg">
             <thead className="text-white bg-gray-800">
               <tr>
+                <th className="px-4 py-3 text-left border">ID</th>
                 <th className="px-4 py-3 text-left border">Employee</th>
                 <th className="px-4 py-3 text-left border">Reason</th>
                 <th className="px-4 py-3 text-left border"> From</th>
@@ -29,6 +30,7 @@ function LeaveManagement() {
               {leaves.map((leave) => (
                 <tr
                   key={leave.id}className="transition hover:bg-gray-100">
+                  <td className="px-4 py-3 border">{leave.id}</td>
                   <td className="px-4 py-3 border">{leave.employeeName}</td>
                   <td className="px-4 py-3 border">{leave.reason}</td>
                   <td className="px-4 py-3 border">{leave.fromDate}</td>

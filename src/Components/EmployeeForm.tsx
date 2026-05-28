@@ -11,7 +11,7 @@ function EmployeeForm() {
   const [salary, setSalary] = useState("");
   const handleAdd = () => {
     const newEmployee = {
-      id: users.length + 1,
+      id: users.length>0 ? users[users.length-1].id+1:1,
       name,
       designation: "Employee",
       role,

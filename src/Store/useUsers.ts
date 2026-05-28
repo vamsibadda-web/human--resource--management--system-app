@@ -27,61 +27,34 @@ create<Store>((set) => ({
   loggedUser: null,
   login: (Email: string,password: string) => {
 
-    const foundUser =
-      initialUsers.find(
-        (u) =>
-          u.Email.toLowerCase() ===
-            Email.toLowerCase() &&
-          u.password === password
-      );
-
+    const foundUser =initialUsers.find((u) =>u.Email.toLowerCase() === Email.toLowerCase() && u.password === password );
     if (foundUser) {
-
-      set({
-        loggedUser: foundUser
-      });
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify(foundUser)
+      set({ loggedUser: foundUser});
+      localStorage.setItem("user", JSON.stringify(foundUser)
       );
-
       return true;
-    }
-
+      }
     return false;
   },
 
-  logout: () => {
-
-    localStorage.removeItem("user");
-
-    set({
-      loggedUser: null
-    });
+  logout: () => {localStorage.removeItem("user");
+    set({loggedUser: null
+    })
   },
-
   addEmployee: (newEmployee) =>
     set((state) => ({
-      users: [
-        ...state.users,
-        newEmployee
-      ],
+      users: [...state.users,newEmployee]
     })),
 
   editEmployee: (updatedEmployee) =>
     set((state) => ({
       users: state.users.map((user) =>
-        user.id === updatedEmployee.id
-          ? updatedEmployee
-          : user
-      ),
+        user.id === updatedEmployee.id ? updatedEmployee: user )
     })),
 
   deleteEmployee: (id) =>
     set((state) => ({
       users: state.users.filter(
-        (user) => user.id !== id
-      ),
-    })),
-}));
+        (user) => user.id !== id)
+    }))
+}))
